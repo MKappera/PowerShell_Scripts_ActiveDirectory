@@ -1,25 +1,31 @@
-# Active Directory PowerShell Automation Scripts
+# 🧠 Active Directory PowerShell Automation Scripts
 
-This repository contains practical PowerShell scripts for automating common Active Directory administrative tasks.
+This repository contains practical **PowerShell scripts** for automating and maintaining **Active Directory (AD)** environments.  
+They’re designed for system administrators who want to simplify daily tasks, improve security, and maintain cleaner AD structures.
 
-## Scripts Included
+---
+
+## 📜 Scripts Included
+
 | Script | Description |
 |--------|--------------|
-| **Create-ADUser.ps1** | Creates a single user account and adds to group. |
-| **Bulk-Create-ADUsers.ps1** | Imports users from a CSV file. |
-| **Disable-InactiveADUsers.ps1** | Disables accounts inactive for a defined period. |
-| **Get-ADUserReport.ps1** | Exports user data and account status to CSV. |
-| **Reset-ADUserPassword.ps1** | Resets passwords and re-enables accounts. |
+| **Create-ADUser.ps1** | Creates a single user account and adds it to a group. |
+| **Bulk-Create-ADUsers.ps1** | Imports and creates multiple users from a CSV file. |
+| **Disable-InactiveADUsers.ps1** | Disables user accounts inactive for a defined number of days. |
+| **Get-ADUserReport.ps1** | Generates a CSV report of all AD users, their status, and last logon date. |
+| **Reset-ADUserPassword.ps1** | Resets passwords and re-enables selected user accounts. |
+| **ADGroupMembershipAudit.ps1** | Exports all AD groups and their members for auditing purposes. |
+| **ADCleanupAndReport.ps1** | Automatically disables inactive user/computer accounts and logs results to a report. |
 
-## Requirements
-- Windows Server with **Active Directory PowerShell Module**.
-- Run scripts in **PowerShell as Administrator**.
-- Proper **permissions** to create or modify AD objects.
+---
 
-## Example Usage
+## ⚙️ Requirements
+
+- Windows Server or Windows 10/11 with **Active Directory PowerShell Module** installed.  
+- Run scripts in **PowerShell as Administrator**.  
+- Sufficient **permissions** to create, modify, or disable AD objects.  
+
+To install the AD module (if not already available):
+
 ```powershell
-# Create a single user
-.\Create-ADUser.ps1 -FirstName John -LastName Doe -Username jdoe -OU "OU=Users,DC=domain,DC=local" -Group "IT"
-
-# Bulk create users
-.\Bulk-Create-ADUsers.ps1 -CSVPath "C:\users.csv"
+Add-WindowsFeature RSAT-AD-PowerShell
